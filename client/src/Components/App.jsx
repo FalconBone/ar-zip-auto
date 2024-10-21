@@ -1,9 +1,9 @@
+import { _FILE_INPUT } from "../variables"
+
 const { useState } = require("react")
 const { default: FileUpload } = require("./FileUpload")
 const { default: Form } = require("./Form")
 
-const _FILE_INPUT = 'fileInput'
-const _FORM = 'form'
 
 const App = () => {
 
@@ -11,7 +11,11 @@ const App = () => {
   const [file, setFile] = useState(null)
 
   return (
-    page === _FILE_INPUT ? <FileUpload setPage={setPage} _FORM={_FORM} setFile={setFile}/> : <Form file={file}/>
+    page === _FILE_INPUT
+      ?
+    <FileUpload setPage={setPage} setFile={setFile}/>
+      :
+    <Form file={file} setFile={setFile}/>
   )
 }
 

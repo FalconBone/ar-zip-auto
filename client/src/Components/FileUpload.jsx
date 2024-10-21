@@ -1,4 +1,5 @@
 import axios from "axios"
+import { _FORM } from "../variables"
 
 const { Button } = require("@mui/material")
 
@@ -7,7 +8,7 @@ const FileUpload = (props) => {
     const handleFileUpload = async (event) => {
 
         const formData = new FormData()
-        formData.append('html', event.target.files[0])
+        formData.append('zip', event.target.files[0])
 
         const response = await axios.post('http://localhost:5000/upload', formData, {
             responseType: 'blob', // Чтобы получить файл обратно
@@ -24,7 +25,7 @@ const FileUpload = (props) => {
             props.setFile(reader.result); // reader.result содержит текст
         };
 
-        props.setPage(props._FORM)
+        props.setPage(_FORM)
     }
 
     return (
@@ -33,7 +34,7 @@ const FileUpload = (props) => {
                 Загрузите HTML файл
                 <input
                     hidden 
-                    accept=".html" 
+                    accept=".zip" 
                     type="file" 
                     onChange={handleFileUpload}/>
             </Button>

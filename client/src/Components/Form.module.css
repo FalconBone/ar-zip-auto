@@ -12,7 +12,11 @@
     margin-bottom: 20px;
 }
 
-.name {
+.name { 
     width: 300px;
     margin-right: 30px;
+}
+
+.offerName {
+    margin-bottom: 20px;
 }
